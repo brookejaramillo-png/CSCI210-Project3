@@ -51,21 +51,23 @@ int main() {
 	}
 
 	argv[0] = cmd;
-	for (int i = 1; i < 20; i++){
-		argv[i] = strtok(NULL, " ");
+	char *arg;
+	int i = 1;
+	while (arg = strtok(NULL, " ") != NULL, i < 19 ){
+		argv[i++] = arg;
 	}
+	argv[i] = NULL;
 	
 
 	// Add code to spawn processes for the first 9 commands
 	// And add code to execute cd, exit, help commands
 	//cd: if more than one argument, print "-rsh: cd: too many arguments"
 	if (strcmp(cmd, "cd") == 0){
-		char *dir = argv[1];
 		if (argv[2] != NULL){
 			printf("-rsh: cd: too many arguments");
 			continue;
 		}
-		chdir(dir);
+		chdir(argv[1]);
 	}
 	//exit: return from main
 	else if (strcmp(cmd, "exit") == 0){
