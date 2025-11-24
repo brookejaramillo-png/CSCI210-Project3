@@ -53,7 +53,7 @@ int main() {
 	argv[0] = cmd;
 	char *arg;
 	int i = 1;
-	while (arg = strtok(NULL, " ") != NULL && i < 19 ){
+	while ((arg = strtok(NULL, " ")) != NULL && i < 19 ){
 		argv[i++] = arg;
 	}
 	argv[i] = NULL;
