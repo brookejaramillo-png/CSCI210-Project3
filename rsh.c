@@ -65,7 +65,7 @@ int main() {
 			printf("-rsh: cd: too many arguments");
 			continue;
 		}
-
+		chdir(dir);
 	}
 	//exit: return from main
 	else if (strcmp(cmd, "exit") == 0){
@@ -77,7 +77,7 @@ int main() {
 	}
 	//Posix spawn any other valid command
 	else{
-		int status = posix_spawnp(&pid, cmd, NULL, NULL, argv, environ);
+		posix_spawnp(&pid, cmd, NULL, NULL, argv, environ);
 	}
 	// Use the example provided in myspawn.c
 
