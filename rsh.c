@@ -80,6 +80,7 @@ int main() {
 	//Posix spawn any other valid command
 	else{
 		posix_spawnp(&pid, cmd, NULL, NULL, argv, environ);
+		waitpid(pid, NULL, 0);
 	}
 	// Use the example provided in myspawn.c
 
